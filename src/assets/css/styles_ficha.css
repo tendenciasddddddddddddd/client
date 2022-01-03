@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed&display=swap');
+
+:root {
+    --navbar-height: 70px;
+
+    /* Definición de colores de la paleta https://coolors.co/ff9f1c-ffbf69-00a7e1-331e38-2ec4b6 */
+    --orange-peel: #FF9F1C;
+    --mellow-apricot: #FFBF69;
+    --cerulean-crayola: #00A7E1;
+    --dark-purple: #331E38;
+    --tiffany-blue: #2EC4B6;
+}
+
+* {
+    font-family: 'Barlow Condensed', Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

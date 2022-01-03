@@ -1,0 +1,185 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--dark-purple);
+    color: white;
+    height: var(--navbar-height); 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+.burger-label {
+    position: absolute;
+    top: 10px;
+    right: 0; 
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    font-size: 40px;
+    z-index: 2;
+}
+
+.burger-label::before {
+    content: '';
+    background-color: var(--mellow-apricot);
+    width: 1em;
+    height: .1em;
+    position: absolute;
+    top: 10px;
+    right: 0.1em;
+    box-shadow: 0 0.3em 0 0 var(--mellow-apricot),
+                0 0.6em 0 0 var(--mellow-apricot);
+}
+
+#burger-checkbox {
+    /* position: absolute; */
+    /*top: 8px; /* Posiciono el checkbox sobre el burger para que se pueda chequear */
+    /*right: 11px; /* un poco más a la derecha para que quede más espacio al presionar */
+    margin: 10px;
+    margin-right: 0px;
+    z-index: 3; /* lo pongo por sobre el burger */
+    opacity: 0;    
+    cursor: pointer;
+    width: 50px;
+    height: 45px;
+    border: 1px solid white;
+}
+
+/* Menú cerrado */
+
+.navbar-list {
+    display: none;
+}
+
+/* Menú abierto */ 
+
+#burger-checkbox:checked ~ .navbar-list {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0px;
+    padding-top: 70px;
+    list-style: none;
+    background: #ededed;
+    opacity: .9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Cambio el color del burger para que se vea mejor con el menú abierto */
+#burger-checkbox:checked ~ .burger-label::before {
+    background-color: var(--dark-purple);
+    box-shadow: 0 0.25em 0 0 var(--dark-purple),
+                0 0.5em 0 0 var(--dark-purple);
+}
+
+.navbar-list li {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.navbar-list a {
+    display: block;
+    text-decoration: none;
+    color: var(--dark-purple);
+    font-weight: bold;
+    padding: .5rem;
+    width: auto;
+    margin-left: 0;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.navbar-list a:hover {
+    background-color: var(--mellow-apricot);
+}
+
+.navbar form {
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+    flex: 1 0 auto; 
+}
+
+#search-submit {
+    outline: none;
+    background-color: var(--tiffany-blue);
+    border: none;
+    height: 30px;
+    width: 30px;
+    border-radius: 5px 0px 0px 5px; /* cambiar cuando se despliegue el textbox */
+}
+
+form input[type='text'] {    
+    height: 30px;
+    width: auto;
+    border: 0;
+    font-size: 16px;
+    outline: none;
+    border-radius: 0px 5px 5px 0px;    
+}
+
+@media all and (min-width: 768px) {
+    form input[type='text'] {
+        width: 350px;
+        height: 2rem;
+        font-size: 24px;
+        padding-bottom: .5rem;
+        padding-top: .5rem;
+    }
+    
+    #search-submit {
+        height: 2rem;
+        width: 2.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .navbar {
+        justify-content: space-between;
+    }
+
+    #burger-checkbox {
+        display: none;
+    }
+
+    .burger-label {
+        display: none;
+    }
+
+    .navbar-list {        
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 0px;
+        list-style: none;
+        opacity: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .navbar-list a {
+        display: block;
+        white-space: nowrap;
+        font-weight: normal;
+        color: white;
+        height: var(--navbar-height);
+        line-height: 3rem;
+    }
+
+    .navbar-list a:hover {
+        color: var(--dark-purple);
+    }
+}

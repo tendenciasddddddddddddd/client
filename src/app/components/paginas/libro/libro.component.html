@@ -1,0 +1,98 @@
+<div class="container" >
+  
+   <div style="padding-top: 25px; margin-left: 10%;">
+    <div class="blog-container-cover">
+        <div class="container-info-cover">
+            <h1>List Books Store</h1>
+            
+        </div>
+    </div>
+    <div> <form>
+        <div class="form-row" >
+          <div class="form-group col-md-6" *ngIf="!isLoads">
+            <label for="inputEmail4">Autor</label>
+            <select id="inputState" class="form-control">
+                <option selected disabled>Escoger autor</option>
+                <option *ngFor="let title of lisAutor" [value]="title.ID_AUTORES">{{title.APELLIDOS_AUTOR}}</option>
+              </select>
+          </div>
+          <div class="form-group col-md-6" *ngIf="!isCategoria">
+            <label for="inputPassword4">Categoria</label>
+            <select id="inputState" class="form-control">
+                <option selected disabled>Escoger categoria</option>
+                <option *ngFor="let title of lisCat" [value]="title.ID_CATEGORIAS">{{title.CATEGORIAS}}</option>
+              </select>
+          </div>
+        </div>
+        <div class="form-row" >
+            <div class="form-group col-md-6" *ngIf="!isEditor">
+              <label for="inputEmail4">Editor</label>
+              <select id="inputState" class="form-control">
+                <option selected disabled>Escoger editorial.</option>
+                <option *ngFor="let title of lisEdit" [value]="title.ID_EDITORIALES">{{title.NOMBRE_EDITORIAL}}</option>
+                
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">Titulo</label>
+              <input type="text" class="form-control" id="inputAddress2" placeholder="Nombre del libro">
+            </div>
+          </div>
+          <div class="form-row" >
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">Año</label>
+              <input type="date" class="form-control" id="inputEmail4" placeholder="Email">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">Portada</label>
+              <input type="file" (change)="onFileChanged($event)" class="form-control-file" id="exampleFormControlFile1">
+            </div>
+          </div>
+      
+        
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </form></div>
+      <br>
+    <section *ngIf="!isLoads" class="margin-top: 25px;">
+       
+    
+        <table mat-table [dataSource]="filteredData2" class="mat-elevation-z8 demo-table" style="margin-top:10px;">
+          <!-- Position Column -->
+          <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef>No.</th>
+            <td mat-cell *matCellDef="let element">{{element.id}}</td>
+          </ng-container>
+        
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let element">{{element.name}}</td>
+          </ng-container>
+        
+          <!-- Weight Column -->
+          <ng-container matColumnDef="weight">
+            <th mat-header-cell *matHeaderCellDef>Weight</th>
+            <td mat-cell *matCellDef="let element">{{element.categoria}}</td>
+          </ng-container>
+        
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="symbol">
+            <th mat-header-cell *matHeaderCellDef>Symbol</th>
+            <td mat-cell *matCellDef="let element">{{element.editora}}</td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr
+              mat-row
+             
+             
+              *matRowDef="let row; columns: displayedColumns;"
+          ></tr>
+        </table>
+    </section>
+  
+   </div>
+    
+    
+    
+</div>
